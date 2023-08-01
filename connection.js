@@ -1,5 +1,5 @@
 const {
-     default: WAConnection,
+     default: makeWASocket,
      useMultiFileAuthState,
      generateWAMessageFromContent,
      makeCacheableSignalKeyStore
@@ -11,7 +11,7 @@ const { exec } = require("child_process")
 exports.connectWA = async () => {
     const { state, saveCreds } = await useMultiFileAuthState("session");
     const level = pino({ level: "silent"})
-    const client = new WAConnection({
+    const client = new makeWASocket({
         logger: level,
         printQRInTerminal: true,
         browser: [ "AlexitoBot", "Firefox", "3.0.0" ],
