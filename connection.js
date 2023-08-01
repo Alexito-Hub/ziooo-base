@@ -7,7 +7,7 @@ const {
 
 const pino = require("pino")
 
-exports.client = async () => {
+exports.connectWA = async () => {
     const { state, saveCreds } = await useMultiFileAuthState("session");
     const level = pino({ level: "silent"})
     const client = WAConnection({

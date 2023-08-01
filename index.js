@@ -1,8 +1,8 @@
-const { connecTo } = require("./connection")
+const { connectWA } = require("./connection")
 /*const { load } = require("./load")*/
 
 async function waConnection() {
-    const taku = await connecTo()
+    const taku = await connectWA()
     load(taku)
 }
 
