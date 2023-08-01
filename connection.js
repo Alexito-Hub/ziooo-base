@@ -8,7 +8,7 @@ const {
 const pino = require("pino")
 const { exec } = require("child_process")
 
-exports.connectWA = async () => {
+exports.connectWA = async (start) => {
     const { state, saveCreds } = await useMultiFileAuthState("session");
     const level = pino({ level: "silent"})
     const client = makeWASocket({
