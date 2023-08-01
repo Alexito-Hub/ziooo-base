@@ -1,0 +1,30 @@
+{
+  "name": "alexito",
+  "version": "0.1.0",
+  "description": "el mejor bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexito-Hub/Alexito.git"
+  },
+  "keywords": [
+    "alexito"
+  ],
+  "author": "Alessandro VG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexito-Hub/Alexito/issues"
+  },
+  "homepage": "https://github.com/Alexito-Hub/Alexito#readme",
+  "dependencies": {
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "@whiskeysockets/baileys": "^6.0.0",
+    "child_process": "^1.0.2",
+    "pino": "^7.0.5",
+    "qrcode-terminal": "^0.12.0",
+    "util": "^0.12.3"
+  }
+}
