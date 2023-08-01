@@ -6,6 +6,7 @@ const {
  } = require("@whiskeysockets/baileys")
 
 const pino = require("pino")
+const { format } = require('util')
 const { exec } = require("child_process")
 
 exports.connectWA = async (start) => {
@@ -25,7 +26,7 @@ exports.connectWA = async (start) => {
         const { connection, lastDisconnect } = v
         
         if (connection === "close") {
-            if (lastDisconnect.error?.output?.statusCode !== 401) {
+            if (lastDisconnect.error.output.statusCode !== 401) {
                 start()
             } else {
                 exec("rm -rf session", (err, stdout, stderr) => {
