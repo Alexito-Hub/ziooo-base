@@ -3,7 +3,6 @@ const { connectWA } = require("./connection")
 
 async function waConnection() {
     const taku = await connectWA()
-    load(taku)
 }
 
 waConnection()
