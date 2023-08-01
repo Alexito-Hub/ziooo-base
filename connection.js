@@ -11,7 +11,7 @@ const { exec } = require("child_process")
 exports.connectWA = async (start) => {
     const { state, saveCreds } = await useMultiFileAuthState("session");
     const level = pino({ level: "silent"})
-    const client = new WAConnection({
+    const client = WAConnection({
         logger: level,
         printQRInTerminal: true,
         browser: [ "AlexitoBot", "Firefox", "3.0.0" ],
