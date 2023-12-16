@@ -20,6 +20,7 @@ exports.connectWA = async (start) => {
     const sock = makeWASocket({
       version,
       logger: level,
+      printQRInTerminal: true,
       mobile: useMobile,
       auth: {
         creds: state.creds,
