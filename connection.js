@@ -8,8 +8,11 @@ const {
 
 const pino = require("pino");
 const fs = require("fs")
+const NodeCache = require( "node-cache" );
 
 const useMobile = process.argv.includes('--mobile')
+const msgRetryCounterCache = new NodeCache()
+
 
 exports.connectWA = async (start) => {
   try {
