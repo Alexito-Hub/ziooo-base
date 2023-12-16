@@ -1,18 +1,17 @@
 {
   "name": "zio",
   "version": "0.1.0",
-  "description": "el mejor bot",
-  "main": "index.js",
+  "description": "El mejor bot de WhatsApp",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alexito-Hub/ziooo-base.git"
   },
-  "keywords": [
-    "ziooo"
-  ],
+  "keywords": ["ziooo", "whatsapp", "bot"],
   "author": "Alessandro",
   "license": "ISC",
   "bugs": {
@@ -20,8 +19,8 @@
   },
   "homepage": "https://github.com/Alexito-Hub/ziooo-base#readme",
   "dependencies": {
-    "@adiwajshing/keyed-db": "^0.2.4",
-    "@whiskeysockets/baileys": "^6.0.0",
+    "@adiwajshing/keyed-db": "github:adiwajshing/keyed-db",
+    "@whiskeysockets/baileys": "github:WhiskeySockets/Baileys",
     "child_process": "^1.0.2",
     "pino": "^7.0.5",
     "qrcode-terminal": "^0.12.0",
