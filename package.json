@@ -1,5 +1,5 @@
 {
-  "name": "alexito",
+  "name": "zio",
   "version": "0.1.0",
   "description": "el mejor bot",
   "main": "index.js",
@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Alexito-Hub/Alexito.git"
+    "url": "git+https://github.com/Alexito-Hub/ziooo-base.git"
   },
   "keywords": [
-    "alexito"
+    "ziooo"
   ],
-  "author": "Alessandro VG",
+  "author": "Alessandro",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Alexito-Hub/Alexito/issues"
+    "url": "https://github.com/Alexito-Hub/ziooo-base/issues"
   },
-  "homepage": "https://github.com/Alexito-Hub/Alexito#readme",
+  "homepage": "https://github.com/Alexito-Hub/ziooo-base#readme",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@whiskeysockets/baileys": "^6.0.0",
