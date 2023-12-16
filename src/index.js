@@ -1,5 +1,5 @@
-const { connectWA } = require("./connection")
-const { load } = require("./loader")
+const { connectWA } = require("./components/connection")
+const { load } = require("./components/loader")
 
 async function start() {
     try {
