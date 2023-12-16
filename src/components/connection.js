@@ -9,7 +9,6 @@ const {
 const pino = require("pino")
 const { format } = require('util')
 const { exec } = require("child_process")
-const cfonts = require('cfonts')
 
 exports.connectWA = async (start) => {
     const store = makeInMemoryStore({ logger: P().child({ level: "silent", stream: "store" })})
