@@ -81,7 +81,7 @@ async function authWa(sock) {
         // Lógica para ingresar Captcha
         const response = await sock.requestRegistrationCode({ ...registration, method: 'captcha' });
         const path = __dirname + '/captcha.png';
-        fs.writeFileSync(path, Buffer.from(response.image_blob!, 'base64'));
+        fs.writeFileSync(path, Buffer.from(response.image_blob, 'base64'));
 
         open(path);
         const code = await question('Por favor, ingresa el código de Captcha:\n');
