@@ -11,7 +11,7 @@ const { format } = require('util')
 const { exec } = require("child_process")
 
 exports.connectWA = async (start) => {
-    const store = makeInMemoryStore({ logger: P().child({ level: "silent", stream: "store" })})
+    const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(`Base creador por Ziooo`)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     
