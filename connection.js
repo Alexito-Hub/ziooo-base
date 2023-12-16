@@ -8,6 +8,8 @@ const {
 const pino = require("pino");
 const fs = require("fs")
 
+const useMobile = process.argv.includes('--mobile')
+
 exports.connectWA = async (start) => {
   try {
     const { state, saveCreds } = await useMultiFileAuthState(
