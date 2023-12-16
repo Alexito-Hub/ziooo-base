@@ -1,5 +1,6 @@
 const {
-     default: WAConnection,
+     default: makeWASocket,
+     makeInMemoryStore,
      useMultiFileAuthState,
      generateWAMessageFromContent,
      makeCacheableSignalKeyStore
@@ -8,25 +9,27 @@ const {
 const pino = require("pino")
 const { format } = require('util')
 const { exec } = require("child_process")
+const cfonts = require('cfonts')
 
 exports.connectWA = async (start) => {
-    const { state, saveCreds } = await useMultiFileAuthState("session");
-    const level = pino({ level: "silent"})
-    const client = WAConnection({
-        logger: level,
-        printQRInTerminal: true,
-        browser: [ "AlexitoBot", "Firefox", "3.0.0" ],
-        auth: {
-            creds: state.creds,
-            keys: makeCacheableSignalKeyStore(state.keys, level)
-        }
+    const store = makeInMemoryStore({ logger: P().child({ level: "silent", stream: "store" })})
+    console.log(`Base creador por Ziooo`)
+    const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
+    
+    const sock = makeWASocket({
+        logger : pino({ level : "silent" }),
+        auth : state,
+        browser: ["FireFox (linux)"],
+        printQRInTerminal: true
     })
 
-    client.ev.on("connection.update", v => {
+    sock.ev.on("connection.update", v => {
         const { connection, lastDisconnect } = v
         
         if (connection === "close") {
-            if (lastDisconnect.error.output.statusCode !== 401) {
+            const shouldReconnect = (lastDisconnect.error)?.output?.statusCode !== DisconnectReason.loggedOut
+            console.log('Error en la conexión ', lastDisconnect.error, ', Reconectando ', shouldReconnect)
+            if(shouldReconnect) {
                 start()
             } else {
                 exec("rm -rf session", (err, stdout, stderr) => {
@@ -42,7 +45,9 @@ exports.connectWA = async (start) => {
             console.log("Bot está en línea")
         }
     })
+    
+    sock.ev.on("creds.update", saveCreds)
 
-    client.ev.on("creds.update", saveCreds)
-    return client
+    store.bind(sock.ev)
+    return sock
 }

@@ -5,8 +5,8 @@ async function start() {
     try {
         const botWA = await connectWA(start)
         load(botWA)
-    } catch (error) {
-        console.error("Error al iniciar el bot:", error)
+    } catch (e) {
+        console.error("Error al iniciar el bot:", e)
     }
 }
 
