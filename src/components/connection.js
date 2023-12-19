@@ -13,17 +13,17 @@ const cfonts = require("cfonts")
 const banner = cfonts.render("I'm ziooo", {
     font: "simple",
     align: "center",
-    gradient: [ "blue" ]
+    gradient: ["green","blue"]
 })
 const copyright = cfonts.render("All rights reserved|@zio", {
     font: "console",
     align: "center",
-    gradient: [ "blue" ]
+    gradient: ["green","blue"]
 })
 
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
-    console.log(banner, '\n', copyright)
+    console.log(banner, copyright)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     
     const sock = makeWASocket({
