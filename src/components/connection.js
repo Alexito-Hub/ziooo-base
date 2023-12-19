@@ -13,12 +13,12 @@ const cfonts = require("cfonts")
 const banner = cfonts.render("I'm ziooo", {
     font: "simple",
     align: "center",
-    gradient: "#00f",blueBright 
+    gradient: [ "blue" ]
 })
 const copyright = cfonts.render("All rights reserved|@zio", {
     font: "console",
     align: "center",
-    gradient: "#00f",bluebright 
+    gradient: [ "blue" ]
 })
 
 exports.connect = async () => {
