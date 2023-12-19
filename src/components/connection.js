@@ -11,12 +11,12 @@ const { format } = require('util')
 const { exec } = require("child_process")
 
 const { banner, copyright, getGlobalSpinner } = require("../../others/font")
-const banner = font.banner();
-const copyright = font.copyright();
+const bannerConsole = font.banner();
+const copyrightConsole = font.copyright();
 
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
-    console.log(banner)
+    console.log(bannerConsole)
     const spinner = getGlobalSpinner();
     spinner.start('Verificando sesión...')
     try {
@@ -55,7 +55,7 @@ exports.connect = async () => {
                 })
             }
         } else if (connection === "open") {
-            console.log(copyright)
+            console.log(copyrightConsole)
         }
     })
     
