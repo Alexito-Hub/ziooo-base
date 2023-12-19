@@ -1,9 +1,10 @@
+const { loading } = require("../others/font")
 const { connect } = require("./components/connection")
 const { load } = require("./components/loader")
 
 async function start() {
     try {
-        console.log('\x1b[36m%s\x1b[0m', 'Bienvenido a la base de Ziooo')
+        console.log(loading)
         const bot = await connect();
         load(bot);
     } catch (e) {

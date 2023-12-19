@@ -17,6 +17,8 @@ const copyright = font.copyright();
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(banner)
+    const spinner = getGlobalSpinner();
+    spinner.start('Verificando sesión...')
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     
     const sock = makeWASocket({
@@ -31,7 +33,7 @@ exports.connect = async () => {
         
         if (connection === "close") {
             const shouldReconnect = (lastDisconnect.error)?.output?.statusCode !== DisconnectReason.loggedOut
-            console.log('Error en la conexión ', lastDisconnect.error, ', Reconectando ', shouldReconnect)
+            console.log('Error en la conexión ', lastDisconnect.error, 'Reconectando', shouldReconnect)
             if(shouldReconnect) {
                 start()
             } else {
@@ -46,7 +48,6 @@ exports.connect = async () => {
             }
         } else if (connection === "open") {
             console.log(copyright)
-            console.log("En Línea")
         }
     })
     
