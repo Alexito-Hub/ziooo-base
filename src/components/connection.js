@@ -21,10 +21,10 @@ exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(bannerConsole)
     const spinner = getGlobalSpinner();
+    const sessionExists = fs.existsSync("./auth/session")
     setTimeout(() => {
         spinner.start('Verificando sesión...')
     }, 2000)
-    const sessionExists = fs.existsSync("./auth/session")
     if (sessionExists) {
         spinner.succeed('Sesión existente encontrada.');
     } else {
