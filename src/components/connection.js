@@ -18,7 +18,9 @@ exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(bannerConsole)
     const spinner = getGlobalSpinner();
-    spinner.start('Verificando sesión...')
+    setTimeout(() => {
+        spinner.start('Verificando sesión...')
+    }, 2000)
     try {
         const sessionExists = fs.existsSync("../../others/font")
         setTimeout(() => {
@@ -34,7 +36,7 @@ exports.connect = async () => {
         auth : state,
         browser: ["FireFox (linux)"],
         printQRInTerminal: true
-    }, 300)
+    }, 5000)
 
     sock.ev.on("connection.update", v => {
         const { connection, lastDisconnect } = v
