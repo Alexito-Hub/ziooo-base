@@ -31,7 +31,7 @@ exports.connect = async () => {
     } catch (error) {
         setTimeout(() => {
             spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
-        })
+        }, 1000)
     }
     
     
@@ -43,9 +43,8 @@ exports.connect = async () => {
         printQRInTerminal: true
     })
     
-
+    await sleep(6000)
     sock.ev.on("connection.update", v => {
-        await sleep(5000)
         const { connection, lastDisconnect } = v
         
         if (connection === "close") {
