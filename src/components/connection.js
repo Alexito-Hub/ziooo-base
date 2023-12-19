@@ -25,18 +25,21 @@ exports.connect = async () => {
         const sessionExists = fs.existsSync("../../others/font")
         setTimeout(() => {
             spinner.succeed('Sesión existente encontrada.');
-        }, 3000)
+        }, 1000)
     } catch (error) {
         spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
     }
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     
-    const sock = makeWASocket({
-        logger : pino({ level : "silent" }),
-        auth : state,
-        browser: ["FireFox (linux)"],
-        printQRInTerminal: true
+    setTimeout(() => {
+        const sock = makeWASocket({
+            logger : pino({ level : "silent" }),
+            auth : state,
+            browser: ["FireFox (linux)"],
+            printQRInTerminal: true
+        })
     }, 5000)
+    
 
     sock.ev.on("connection.update", v => {
         const { connection, lastDisconnect } = v
