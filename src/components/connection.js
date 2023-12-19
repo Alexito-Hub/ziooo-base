@@ -1,3 +1,22 @@
+/* *******************************************************************************************************************
+   *
+   *    -- CREADO POR ZIOOO --      
+   *
+   *    IG : im._ziooo
+   *    GITHUB : Alexito-Hub
+   *
+   *    -- PARA USAR --        
+   *    $ git clone https://github.com/Alexito-Hub/ziooo-base.git
+   *    $ npm install
+   *    $ npm start
+   *
+   *    ¿tienes problemas? Contáctanos
+   *    +1 (347) 666-5855
+   *    +51 968 374 620
+   *
+   *******************************************************************************************************************/
+
+require("../database")
 const {
      default: makeWASocket,
      makeInMemoryStore,
@@ -6,12 +25,17 @@ const {
      makeCacheableSignalKeyStore
  } = require("@whiskeysockets/baileys")
 
-const pino = require("pino")
 const fs = require("fs")
+const pino = require("pino")
+const cli = require("cli-color");
 const { format } = require('util')
 const { exec } = require("child_process")
 
-const font = require("../../others/font")
+const color = (text, color) => {
+    return color ? cli[color](text) : cli.bold(text);
+};
+
+const font = require("../../lib/font")
 const banner = font.banner();
 const copyright = font.copyright();
 

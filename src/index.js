@@ -1,4 +1,4 @@
-const font = require("../others/font")
+const font = require("../lib/font")
 const { connect } = require("./components/connection")
 const { load } = require("./components/loader")
 
