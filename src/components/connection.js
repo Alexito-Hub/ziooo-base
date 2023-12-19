@@ -23,18 +23,13 @@ exports.connect = async () => {
     setTimeout(() => {
         spinner.start('Verificando sesión...')
     }, 2000)
-    try {
-        const sessionExists = fs.existsSync("./auth/session")
-        setTimeout(() => {
-            spinner.succeed('Sesión existente encontrada.');
-        }, 1000)
-    } catch (error) {
-        setTimeout(() => {
-            spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
-        }, 1000)
+    que 
+    if (sessionExists) {
+        spinner.succeed('Sesión existente encontrada.');
+    } else {
+        spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
     }
-    
-    
+    await sleep(6000)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     const sock = makeWASocket({
         logger : pino({ level : "silent" }),
@@ -43,7 +38,6 @@ exports.connect = async () => {
         printQRInTerminal: true
     })
     
-    await sleep(6000)
     sock.ev.on("connection.update", v => {
         const { connection, lastDisconnect } = v
         
