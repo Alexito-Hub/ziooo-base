@@ -14,6 +14,8 @@ const { banner, copyright, getGlobalSpinner } = require("../../others/font")
 const bannerConsole = banner();
 const copyrightConsole = copyright();
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(bannerConsole)
@@ -29,16 +31,16 @@ exports.connect = async () => {
     } catch (error) {
         spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
     }
+    
+    await sleep(5000)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     
-    setTimeout(() => {
-        const sock = makeWASocket({
-            logger : pino({ level : "silent" }),
-            auth : state,
-            browser: ["FireFox (linux)"],
-            printQRInTerminal: true
-        })
-    }, 5000)
+    const sock = makeWASocket({
+        logger : pino({ level : "silent" }),
+        auth : state,
+        browser: ["FireFox (linux)"],
+        printQRInTerminal: true
+    })
     
 
     sock.ev.on("connection.update", v => {
