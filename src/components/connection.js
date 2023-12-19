@@ -24,13 +24,15 @@ exports.connect = async () => {
     const sessionExists = fs.existsSync("./auth/session")
     setTimeout(() => {
         spinner.start('Verificando sesión...')
-    }, 2000)
+    }, 1000)
     if (sessionExists) {
         setTimeout(() => {
             spinner.succeed('Sesión existente encontrada.');
         }, 3000)
     } else {
-        spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
+        setTimeout(() => {
+            spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
+        }, 3000)
     }
     await sleep(6000)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
