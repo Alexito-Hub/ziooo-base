@@ -19,7 +19,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
-    console.log(bannerConsole)
+    console.log(banner)
     const spinner = font.getGlobalSpinner();
     const sessionExists = fs.existsSync("./auth/session")
     setTimeout(() => {
@@ -62,7 +62,7 @@ exports.connect = async () => {
                 })
             }
         } else if (connection === "open") {
-            console.log(copyrightConsole)
+            console.log(copyright)
         }
     })
     
