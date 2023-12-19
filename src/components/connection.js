@@ -10,9 +10,7 @@ const pino = require("pino")
 const { format } = require('util')
 const { exec } = require("child_process")
 
-const font = require("../../others/font")
-const banner = font.banner();
-const copyright = font.copyright();
+const { banner, copyright, getGlobalSpinner } = require("../../others/font")
 
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
