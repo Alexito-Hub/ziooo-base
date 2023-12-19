@@ -26,7 +26,9 @@ exports.connect = async () => {
         spinner.start('Verificando sesión...')
     }, 2000)
     if (sessionExists) {
-        spinner.succeed('Sesión existente encontrada.');
+        setTimeout(() => {
+            spinner.succeed('Sesión existente encontrada.');
+        }, 3000)
     } else {
         spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
     }
