@@ -34,7 +34,7 @@ exports.connect = async () => {
             spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
         }, 3000)
     }
-    await sleep(6000)
+    await sleep(4000)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     const sock = makeWASocket({
         logger : pino({ level : "silent" }),

@@ -19,9 +19,17 @@ function copyright() {
     const copyrightConfig = {
         font: 'console',
         align: 'center',
-        gradient: ['green', 'blue']
+        gradient: ['yellow', 'green']
     };
     return cfonts.render('All rights reserved|@zio', copyrightConfig).string;
+}
+
+function loading(text) {
+    const loadingConfig = {
+        font: "console",
+        align: "center"
+    }
+    return cfonts.render('Bienvenido a la base de Ziooo', loadingConfig).string
 }
 
 const spinnerFrames = ['🕐', '🕑', '🕒', '🕓', '🕔', '🕕', '🕖', '🕗', '🕘', '🕙', '🕚', '🕛'];
@@ -69,6 +77,7 @@ function splitMessage(text, limit = MESSAGE_LIMIT) {
 
 module.exports = {
     banner,
+    loading,
     copyright,
     splitMessage,
     getGlobalSpinner
