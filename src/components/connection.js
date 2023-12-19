@@ -10,7 +10,7 @@ const pino = require("pino")
 const { format } = require('util')
 const { exec } = require("child_process")
 
-const font = require("./others/font")
+const font = require("../../others/font")
 const banner = font.banner();
 const copyright = font.copyright();
 
