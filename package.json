@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Alexito-Hub/ziooo-base#readme",
   "dependencies": {
+    "@adiwajshing/keyed-db": "^0.2.4",
     "@whiskeysockets/baileys": "github:WhiskeySockets/Baileys",
     "child_process": "^1.0.2",
     "pino": "^7.0.5",
