@@ -23,7 +23,7 @@ exports.connect = async () => {
     setTimeout(() => {
         spinner.start('Verificando sesión...')
     }, 2000)
-    que 
+    const sessionExists = fs.existsSync("./auth/session")
     if (sessionExists) {
         spinner.succeed('Sesión existente encontrada.');
     } else {
