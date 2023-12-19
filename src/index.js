@@ -1,9 +1,10 @@
-const { loading } = require("../others/font")
+const font = require("../others/font")
 const { connect } = require("./components/connection")
 const { load } = require("./components/loader")
 
 async function start() {
     try {
+        const loading = font.loading()
         console.log(loading)
         const bot = await connect();
         load(bot);

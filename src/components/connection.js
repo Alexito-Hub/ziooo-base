@@ -11,16 +11,16 @@ const fs = require("fs")
 const { format } = require('util')
 const { exec } = require("child_process")
 
-const { banner, copyright, getGlobalSpinner } = require("../../others/font")
-const bannerConsole = banner();
-const copyrightConsole = copyright();
+const font = require("../../others/font")
+const banner = font.banner();
+const copyright = font.copyright();
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(bannerConsole)
-    const spinner = getGlobalSpinner();
+    const spinner = font.getGlobalSpinner();
     const sessionExists = fs.existsSync("./auth/session")
     setTimeout(() => {
         spinner.start('Verificando sesión...')
