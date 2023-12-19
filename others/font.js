@@ -19,6 +19,6 @@ function copyright() {
 }
 
 module.exports = {
-    baneer,
+    banner,
     copyright
 };
