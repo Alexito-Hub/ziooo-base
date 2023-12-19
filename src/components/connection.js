@@ -9,21 +9,14 @@ const {
 const pino = require("pino")
 const { format } = require('util')
 const { exec } = require("child_process")
-const cfonts = require("cfonts")
-const banner = cfonts.render("I'm ziooo", {
-    font: "simple",
-    align: "center",
-    gradient: ["green","blue"]
-})
-const copyright = cfonts.render("All rights reserved|@zio", {
-    font: "console",
-    align: "center",
-    gradient: ["green","blue"]
-})
+
+const font = require("../others/font")
+const banner = font.banner();
+const copyright = font.copyright();
 
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
-    console.log(banner.string)
+    console.log(banner)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     
     const sock = makeWASocket({
@@ -52,7 +45,7 @@ exports.connect = async () => {
                 })
             }
         } else if (connection === "open") {
-            console.log(copyright.string)
+            console.log(copyright)
             console.log("En Línea")
         }
     })
