@@ -10,12 +10,12 @@ const pino = require("pino")
 const { format } = require('util')
 const { exec } = require("child_process")
 const cfonts = require("cfonts")
-const banner = cfonts.render("I'm ziooo", {
+const banner = cfonts("I'm ziooo", {
     font: "simple",
     align: "center",
     gradient: ["green","blue"]
 })
-const copyright = cfonts.render("All rights reserved|@zio", {
+const copyright = cfonts("All rights reserved|@zio", {
     font: "console",
     align: "center",
     gradient: ["green","blue"]
