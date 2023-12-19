@@ -7,6 +7,7 @@ const {
  } = require("@whiskeysockets/baileys")
 
 const pino = require("pino")
+const fs = require("fs")
 const { format } = require('util')
 const { exec } = require("child_process")
 
