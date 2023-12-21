@@ -44,6 +44,9 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(banner)
+    const progressBar = font.getProgressBar(60);
+    console.log(progressBar);
+
     const spinner = font.getGlobalSpinner();
     const sessionExists = fs.existsSync("./auth/session")
     setTimeout(() => {

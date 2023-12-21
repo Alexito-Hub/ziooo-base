@@ -21,7 +21,9 @@
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@whiskeysockets/baileys": "github:WhiskeySockets/Baileys",
+    "cfonts": "^3.2.0",
     "child_process": "^1.0.2",
+    "cli-color": "^2.6.3",
     "pino": "^7.0.5",
     "qrcode-terminal": "^0.12.0",
     "util": "^0.12.3"
