@@ -63,17 +63,17 @@ exports.connect = async () => {
     const sock = makeWASocket({
         logger : pino({ level : "silent" }),
         auth : state,
-        browser: ["FireFox (linux)"],
+        browser: ["Base Ziooo", "Firefox", "3.0.0"],
         printQRInTerminal: true
     })
     
-    sock.ev.on("connection.update", v => {
-        const { connection, lastDisconnect } = v
+    sock.ev.on("connection.update", m => {
+        const { connection, lastDisconnect } = m
         
         if (connection === "close") {
-            const shouldReconnect = (lastDisconnect.error)?.output?.statusCode !== DisconnectReason.loggedOut
-            console.log('Error en la conexión ', lastDisconnect.error, 'Reconectando', shouldReconnect)
-            if(shouldReconnect) {
+            const reconect = (lastDisconnect.error)?.output?.statusCode !== DisconnectReason.loggedOut
+            console.log('Error en la conexión ', lastDisconnect.error, 'Reconectando', reconect)
+            if(reconect) {
                 start()
             } else {
                 exec("rm -rf session", (err, stdout, stderr) => {
