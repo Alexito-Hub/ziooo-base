@@ -88,7 +88,7 @@ exports.connect = async (start) => {
                 })
             }
         } else if (connection === "open") {
-            const progress = progressBar(5000);
+            const progress = font.progressBar(5000);
             console.log(copyright)
             console.log(progress)
         }
