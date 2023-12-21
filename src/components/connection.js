@@ -45,7 +45,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 exports.connect = async (start) => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     const spinner = font.getGlobalSpinner();
-    const sessionExists = await fs.access('./auth/session').then(() => true).catch(() => false);
+    const sessionExists = await fs.promises.access('./auth/session').then(() => true).catch(() => false);
 
     await utils.statusSession(spinner, sessionExists);
     await sleep(4000)
