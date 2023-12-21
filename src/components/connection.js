@@ -18,7 +18,7 @@
 
 require("../database")
 const {
-     default: makeWASocket,
+     default: WAConnection,
      DisconnectReason,
      makeInMemoryStore,
      useMultiFileAuthState,
@@ -62,7 +62,7 @@ exports.connect = async (start) => {
     
     await sleep(4000)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
-    const sock = makeWASocket({
+    const sock = WAConnection({
         logger : pino({ level : "silent" }),
         auth : state,
         browser: ["Base Ziooo", "Firefox", "3.0.0"],
