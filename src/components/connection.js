@@ -45,21 +45,9 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 exports.connect = async (start) => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     const spinner = font.getGlobalSpinner();
-    const sessionExists = fs.existsSync("./auth/session")
-    setTimeout(() => {
-        spinner.start('Verificando sesión...')
-    }, 1000)
-    if (sessionExists) {
-        setTimeout(() => {
-            spinner.succeed('Sesión existente encontrada.');
-        }, 3000)
-    } else {
-        setTimeout(() => {
-            spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
-        }, 3000)
-    }
-    
-    await sleep(4000)
+    const sessionExists = await fs.access('./auth/session').then(() => true).catch(() => false);
+
+    await utils.statusSession(spinner, sessionExists);
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     const sock = WAConnection({
         logger : pino({ level : "silent" }),
