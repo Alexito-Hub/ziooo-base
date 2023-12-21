@@ -42,7 +42,7 @@ const copyright = font.copyright();
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-exports.connect = async () => {
+exports.connect = async (start) => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(banner)
     const spinner = font.getGlobalSpinner();
