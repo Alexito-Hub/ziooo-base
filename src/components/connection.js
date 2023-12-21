@@ -59,9 +59,7 @@ exports.connect = async () => {
         }, 3000)
     }
     
-    const progressBar = font.getProgressBar(100);
-    console.log(progressBar);
-    await sleep(10000)
+    await sleep(4000)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     const sock = makeWASocket({
         logger : pino({ level : "silent" }),
@@ -89,7 +87,9 @@ exports.connect = async () => {
                 })
             }
         } else if (connection === "open") {
+            const progress = progressBar(5000);
             console.log(copyright)
+            console.log(progress)
         }
     })
     
