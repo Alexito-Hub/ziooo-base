@@ -35,7 +35,7 @@ const { exec } = require("child_process")
 const color = (text, color) => {
     return color ? cli[color](text) : cli.bold(text);
 };
-
+const utils = require("../../lib/utils")
 const font = require("../../lib/font")
 const banner = font.banner();
 const copyright = font.copyright();
@@ -48,6 +48,7 @@ exports.connect = async (start) => {
     const sessionExists = await fs.access('./auth/session').then(() => true).catch(() => false);
 
     await utils.statusSession(spinner, sessionExists);
+    await sleep(4000)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     const sock = WAConnection({
         logger : pino({ level : "silent" }),
