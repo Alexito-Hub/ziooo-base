@@ -44,9 +44,6 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 exports.connect = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" })})
     console.log(banner)
-    const progressBar = font.getProgressBar(60);
-    console.log(progressBar);
-
     const spinner = font.getGlobalSpinner();
     const sessionExists = fs.existsSync("./auth/session")
     setTimeout(() => {
@@ -61,7 +58,10 @@ exports.connect = async () => {
             spinner.succeed('No se encontró sesión existente. Escanee el código QR.');
         }, 3000)
     }
-    await sleep(4000)
+    
+    const progressBar = font.getProgressBar(100);
+    console.log(progressBar);
+    await sleep(10000)
     const { state, saveCreds } = await useMultiFileAuthState('./auth/session')
     const sock = makeWASocket({
         logger : pino({ level : "silent" }),
