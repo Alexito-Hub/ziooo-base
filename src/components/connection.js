@@ -19,6 +19,7 @@
 require("../database")
 const {
      default: makeWASocket,
+     DisconnectReason,
      makeInMemoryStore,
      useMultiFileAuthState,
      generateWAMessageFromContent,
