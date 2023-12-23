@@ -6,7 +6,8 @@
 
 ---
 
-Inicia la instalación
+### Instalación
+Inicia la clonación
 ```
 git clone https://github.com/Alexito-Hub/ziooo-base
 ```
@@ -14,10 +15,12 @@ Descarga las dependencias
 ```
 npm install
 ```
-Envia mensajes desde el bot
-```
-sock.sendMessage(m.chat, { text'Hola soy ziooo' })
-```
+
+> [!NOTE]
+> La Base Bot aun se encuentra en desarrollo por la cual solo tiene la conexión con WhatsApp mediante la libreria `@WhiskeySockets/Baileys`
+
+---
+
 **Overview:**
 Elevate your WhatsApp experience with Ziooo, an innovative bot powered by @WhiskeySockets/Baileys. Our v0.1.0-alpha release marks the beginning of a transformative journey, introducing an initial connection with WhatsApp and offering a sneak peek into the powerful capabilities to come.
 
