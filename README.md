@@ -6,18 +6,18 @@
 
 ---
 
-### Instalación
-Inicia la clonación
+### Install
+Start cloning
 ```
 git clone https://github.com/Alexito-Hub/ziooo-base
 ```
-Descarga las dependencias
+Download the dependencies
 ```
 npm install
 ```
 
 > [!NOTE]
-> La Base Bot aun se encuentra en desarrollo por la cual solo tiene la conexión con WhatsApp mediante la libreria `@WhiskeySockets/Baileys`
+> The Bot Base is still in development, so it only has a connection with WhatsApp through the `@WhiskeySockets/Baileys` library.
 
 ---
 
