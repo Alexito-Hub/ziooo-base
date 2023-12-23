@@ -15,6 +15,10 @@ Download the dependencies
 ```
 npm install
 ```
+Connection begins
+```
+npm start
+```
 
 > [!NOTE]
 > The Bot Base is still in development, so it only has a connection with WhatsApp through the `@WhiskeySockets/Baileys` library.
