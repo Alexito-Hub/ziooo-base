@@ -39,7 +39,7 @@ Explore the functionalities and provide valuable feedback as we strive to enhanc
 
 **Contact Information:**
 For inquiries or bug reports, reach out to us on WhatsApp by clicking the icon below:
-<p align="center"><a href="https://wa.me/message/PVTY25VFG5RNI1"><img title="WhatsApp" src="https://img.shields.io/badge/WhatsApp-Online-brightgreen?style=flat-square&logo=whatsapp"</a></p>
+<p align="center"><a href="https://wa.me/message/PVTY25VFG5RNI1"><img title="WhatsApp" src="https://img.shields.io/badge/WhatsApp-status?logo=whatsapp&label=WhatsApp&color=green"</a></p>
 
 Your collaboration is instrumental in shaping the future of Ziooo.
 
