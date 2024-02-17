@@ -11,7 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/Alexito-Hub/ziooo-base.git"
   },
-  "keywords": ["ziooo", "whatsapp", "bot"],
+  "keywords": [
+    "ziooo",
+    "whatsapp",
+    "bot"
+  ],
   "author": "Alessandro",
   "license": "ISC",
   "bugs": {
@@ -19,8 +23,7 @@
   },
   "homepage": "https://github.com/Alexito-Hub/ziooo-base#readme",
   "dependencies": {
-    "@adiwajshing/keyed-db": "^0.2.4",
-    "@whiskeysockets/baileys": "github:WhiskeySockets/Baileys",
+    "@whiskeysockets/baileys": "^6.6.0",
     "cfonts": "^3.2.0",
     "child_process": "^1.0.2",
     "cli-color": "^2.0.3",
