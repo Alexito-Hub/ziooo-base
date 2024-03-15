@@ -6,7 +6,6 @@ const { Json, removeAccents } = require('../../lib/functions')
 
 const { client, sms } = require('../../lib/simple')
 
-
 module.exports = async(sock, m, store) => {
     try {
         sock = client(sock)
@@ -44,6 +43,22 @@ module.exports = async(sock, m, store) => {
             v.reply('Hola, soy un bot creado con la Base de Zioo')
             break
             
+            default:
+                if (isOwner) {
+                    if (v.body.startsWith('>')) {
+                        if (q.trim().length > 0) {
+                            await v.reply('*< processing... >*');
+                            try {
+                                await sock.sendMessage(m.chat, { text : Json(eval(q)) }, { quoted : m })
+                            } catch(e) {
+                                await sock.sendMessage(m.chat, { text : String(e) }, { quoted : m })
+                            }
+                            
+                        } else {
+                            await v.reply('*< There is nothing to process... >*');
+                        }
+                    }
+                }
         }
 
     } catch (e) {

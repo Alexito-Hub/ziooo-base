@@ -27,6 +27,7 @@
     "cfonts": "^3.2.0",
     "child_process": "^1.0.2",
     "cli-color": "^2.0.3",
+    "colorize-console": "^1.0.3",
     "pino": "^7.0.5",
     "qrcode-terminal": "^0.12.0",
     "util": "^0.12.3"

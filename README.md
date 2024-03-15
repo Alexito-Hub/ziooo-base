@@ -6,18 +6,32 @@
 
 ---
 
-### Install
-Start cloning
+## Versions
+
+- **v0.x** (Unstable): Cloned and modified branch from `INki`.
+- **v1.0** (Unstable): Modified and unstable version with the connection.
+- **v1.1-eval** (Unstable): Modified and unstable version for bot testing with `eval` from `WhatsApp`.
+- **v1.2.0** (Recommended): Modified and updated version.
+
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Alexito-Hub/ziooo-base.git
 ```
-git clone https://github.com/Alexito-Hub/ziooo-base
+
+### Switch to the Desired Version
+
+```bash
+cd ziooo-base
+git checkout [branch_name]
 ```
-Download the dependencies
-```
+
+### Install Dependencies
+
+```bash
 npm install
-```
-Connection begins
-```
-npm start
 ```
 
 > [!NOTE]

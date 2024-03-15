@@ -1,4 +1,4 @@
 global.prefix = '#'
 
-global.owner = ['51945310701']
+global.owner = ['51968374620']
 global.staff = []
